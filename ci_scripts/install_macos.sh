@@ -14,6 +14,13 @@ brew install sdl2
 brew link sdl2
 gem install xcpretty
 
+# Need to use macports because Brew does not support universal binaries
+curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
+source ./macports-ci install
+source macports-ci ccache
+port install openimageio
+source macports-ci ccache --save
+
 # Current directory is .../build/{KhronosGroup,msc-}/KTX-Software. cd to 'build'.
 pushd ../..
 wget -O vulkansdk-macos-$VULKAN_SDK_VER.dmg https://sdk.lunarg.com/sdk/download/$VULKAN_SDK_VER/mac/vulkansdk-macos-$VULKAN_SDK_VER.dmg?Human=true

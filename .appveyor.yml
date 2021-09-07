@@ -75,10 +75,16 @@ init:
 # N.B.: for some reason indenting "- cmd" on the following lines causes syntax errors.
 # Not using PS for downloads because its curl is completely different.
 install:
+##################################
+# Install Doxygen, if not VS 2019
+##################################
 - if not "%appveyor_build_worker_image%" == "Visual Studio 2019" cinst doxygen.install
 #- ps: |
     #run mkversion
     #Update-AppveyorBuild -Version "$($env:ospsuite_version).$($env:appveyor_build_version)"
+#####################################
+# Install PowerVR OpenGL ES emulator
+#####################################
 - cmd: |
     REM Download PowerVR OpenGL ES Emulator libraries (latest version).
     md %OPENGL_ES_EMULATOR_WIN%
@@ -99,11 +105,33 @@ install:
     cd C:\projects\ktx
     REM Pull only Windows binaries.
     git lfs pull --include=other_lib/win
+###########################
+# Update vcpkg
+###########################
+# Should we at some point need a newer version of vcpkg than is in
+# the build worker image, do the following.
+#- cd C:\Tools\vcpkg
+#- git pull
+#- .\bootstrap-vcpkg.bat
+#- cd %APPVEYOR_BUILD_FOLDER%
+#################################
+# Install or Upgrade OpenImageIO
+#################################
+- ps: |
+    if (-not(Test-Path -Path c:\tools\packages\openimageio* -PathType Container)) {
+        vcpkg install OpenImageIO
+    } else {
+        vcpkg upgrade OpenImageIO
+    }
 # # One-line install/build zlib (for loadtests) into C:\Program Files\zlib
 # - ps: |
 #     Invoke-WebRequest -Uri https://raw.githubusercontent.com/horta/zlib.install/master/install.bat -OutFile install.bat
 #     ./install.bat
-#cache:
+
+cache:
+# How to know when to invalidate, i.e. what to make a dependency?
+# - c:\tools\vcpkg\installed -> dependency1, dependency2 ...
+  - c:\tools\vcpkg\installed
 #  - other_lib
 
 before_build:

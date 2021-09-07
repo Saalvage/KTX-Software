@@ -4,9 +4,7 @@
 # CI build script for Travis.
 # See https://docs.travis-ci.com/user/multi-os/ for more info.
 
-language:
-  - cpp
-  - node_js
+language: cpp
 
 os: linux
 dist: focal
@@ -31,8 +29,7 @@ jobs:
       python: '3.7'
       services:
         - docker
-      node_js:
-        - node
+      node_js: node
     - os: osx
       env:
         - VULKAN_SDK_VER="1.2.176.1"
@@ -42,6 +39,9 @@ jobs:
         - DEPLOY_BUILD_DIR=build-macos-universal
       compiler: clang
       osx_image: xcode12.4
+      cache:
+        directories:
+          - $HOME/.macports-ci-ccache
 
 #env:
   #global:
