@@ -15,8 +15,8 @@ brew link sdl2
 gem install xcpretty
 
 # Need to use macports because Brew does not support universal binaries
-#curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
-curl -LO https://raw.githubusercontent.com/MarkCallow/macports-ci/bigsur/macports-ci
+curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
+#curl -LO https://raw.githubusercontent.com/MarkCallow/macports-ci/bigsur/macports-ci
 source ./macports-ci install
 source macports-ci ccache
 # I can't find a way to programmatically check if a port is installed.
