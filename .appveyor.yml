@@ -121,7 +121,7 @@ install:
 # outputs a warning to stderr about Boost having long file names causing
 # the build to stop. Hence the override.
 - ps: |
-    $ErrorActionPreference = 'Continue'
+    $ErrorActionPreference = 'SilentlyContinue'
     if (-not(Test-Path -Path c:\tools\packages\openimageio* -PathType Container)) {
         vcpkg install OpenImageIO
     } else {
