@@ -15,10 +15,25 @@ brew link sdl2
 gem install xcpretty
 
 # Need to use macports because Brew does not support universal binaries
-curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
+#curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
+curl -LO https://raw.githubusercontent.com/MarkCallow/macports-ci/bigsur/macports-ci
 source ./macports-ci install
 source macports-ci ccache
-port install openimageio
+# I can't find a way to programmatically check if a port is installed.
+# `port installed openimageio` exits with 0 regardless of installation. So ...
+if [ -d /opt/local/var/macports/software/openimageio ]; then
+  port upgrade openimageio
+else
+  # m4 is a dependency of OIIO. Currently it needs patching to support +universal.
+  # See https://trac.macports.org/ticket/62991#comment:45. A was committed 9/4/2021.
+  # Watch for a mac ports release > 2.7.1.
+  port install m4
+  pushd /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/m4
+  mv Portfile Portfile.orig
+  awk '/PortGroup/ { printf("%s\nPortGroup\t\tmuniversal 1.0\n",$0); } !/PortGroup/ {print $0}' Portfile.orig > Portfile
+  popd
+  port install openimageio +universal
+fi
 source macports-ci ccache --save
 
 # Current directory is .../build/{KhronosGroup,msc-}/KTX-Software. cd to 'build'.
