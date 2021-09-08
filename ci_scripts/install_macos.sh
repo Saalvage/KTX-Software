@@ -28,10 +28,11 @@ else
   # See https://trac.macports.org/ticket/62991#comment:45. A was committed 9/4/2021.
   # Watch for a mac ports release > 2.7.1.
   sudo port install m4
-  pushd /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/m4
-  sudo mv Portfile Portfile.orig
-  sudo awk '/PortGroup/ { printf("%s\nPortGroup\t\tmuniversal 1.0\n",$0); } !/PortGroup/ {print $0}' Portfile.orig > Portfile
-  popd
+  find /opt/local -name m4 -type d
+  #pushd /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/m4
+  #sudo mv Portfile Portfile.orig
+  #sudo awk '/PortGroup/ { printf("%s\nPortGroup\t\tmuniversal 1.0\n",$0); } !/PortGroup/ {print $0}' Portfile.orig > Portfile
+  #popd
   sudo port install openimageio +universal
 fi
 source macports-ci ccache --save
