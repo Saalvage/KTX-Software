@@ -14,6 +14,9 @@ set -e
 #brew link sdl2
 gem install xcpretty
 
+git lfs install
+git lfs version
+
 # Need to use macports because Brew does not support universal binaries
 #curl -LO https://raw.githubusercontent.com/GiovanniBussi/macports-ci/master/macports-ci
 #curl -LO https://raw.githubusercontent.com/MarkCallow/macports-ci/bigsur/macports-ci

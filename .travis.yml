@@ -34,7 +34,7 @@ jobs:
       addons:
         homebrew:
           packages:
-            # - git-lfs
+            - git-lfs
             - doxygen
             - sdl2
             - assimp
