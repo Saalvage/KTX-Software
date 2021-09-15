@@ -31,6 +31,15 @@ jobs:
         - docker
       node_js: node
     - os: osx
+      addons:
+        homebrew:
+          packages:
+            # - git-lfs
+            - doxygen
+            - sdl2
+            - assimp
+            - openimageio
+          update: true
       env:
         - VULKAN_SDK_VER="1.2.176.1"
         # This is just to tell the install script where to install.
