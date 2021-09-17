@@ -33,12 +33,14 @@ jobs:
     - os: osx
       addons:
         homebrew:
+          # These are executables we need during the build.
+          # Because of Brew limitations regarding multiple architectures and
+          # redistributing installed libraries we don't use it for dependencies.
           packages:
             - git-lfs
             - doxygen
-            - sdl2
-            - assimp
-            - openimageio
+            - dylibbundler
+            #- sdl2
           update: true
       env:
         - VULKAN_SDK_VER="1.2.176.1"
