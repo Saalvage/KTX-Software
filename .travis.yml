@@ -40,7 +40,6 @@ jobs:
             - git-lfs
             - doxygen
             - dylibbundler
-            #- sdl2
           update: true
       env:
         - VULKAN_SDK_VER="1.2.176.1"

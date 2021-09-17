@@ -123,9 +123,17 @@ install:
 - ps: |
     $ErrorActionPreference = 'SilentlyContinue'
     if (-not(Test-Path -Path c:\Tools\vcpkg\packages\openimageio* -PathType Container)) {
-        vcpkg install OpenImageIO
+        try {
+            vcpkg install OpenImageIO
+        } catch {
+            "vcpkg install exception: $_"
+        }
     } else {
-        vcpkg upgrade OpenImageIO
+        try {
+            vcpkg upgrade OpenImageIO
+        } catch {
+            "vcpkg upgrade exception: $_"
+        }
     }
 # # One-line install/build zlib (for loadtests) into C:\Program Files\zlib
 # - ps: |
@@ -135,7 +143,7 @@ install:
 cache:
 # How to know when to invalidate, i.e. what to make a dependency?
 # - c:\tools\vcpkg\installed -> dependency1, dependency2 ...
-  - c:\tools\vcpkg\installed
+  - c:\Tools\vcpkg\installed
 #  - other_lib
 
 before_build:
