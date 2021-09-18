@@ -4,8 +4,8 @@
 version: "{build}"
 
 image:
-  - Visual Studio 2015
-  - Visual Studio 2017
+#  - Visual Studio 2015
+#  - Visual Studio 2017
   - Visual Studio 2019
 
 configuration:
@@ -124,12 +124,14 @@ install:
     $ErrorActionPreference = 'SilentlyContinue'
     if (-not(Test-Path -Path c:\Tools\vcpkg\packages\openimageio* -PathType Container)) {
         try {
+            echo "Installing OpenImageIO package and its dependencies."
             vcpkg install OpenImageIO
         } catch {
             "vcpkg install exception: $_"
         }
     } else {
         try {
+            echo "Upgrading OpenImageIO package and its dependencies."
             vcpkg upgrade OpenImageIO
         } catch {
             "vcpkg upgrade exception: $_"
