@@ -144,6 +144,7 @@ cache:
 # How to know when to invalidate, i.e. what to make a dependency?
 # - c:\tools\vcpkg\installed -> dependency1, dependency2 ...
   - c:\Tools\vcpkg\installed
+  - c:\Users\appveyor\AppData\Local\vcpkg
 #  - other_lib
 
 before_build:
