@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_averages_and_directions.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_block_sizes.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_color_quantize.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_color_unquantize.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_compress_symbolic.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_compute_variance.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_decompress_symbolic.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_diagnostic_trace.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_entry.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_find_best_partitioning.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_ideal_endpoints_and_weights.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_image.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_integer_sequence.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_mathlib.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_mathlib_softfloat.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_partition_tables.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_percentile_tables.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_pick_best_endpoint_format.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_platform_isa_detection.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_quantization.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_symbolic_physical.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_weight_align.cpp" />
+    <ClCompile Include="../../../../../lib\astc-encoder\Source\astcenc_weight_quant_xfer_tables.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F251070F-A0F4-3F55-A1AF-8E74FEE754EE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

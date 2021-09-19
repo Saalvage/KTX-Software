@@ -39,3 +39,24 @@ version.h
 # Visual Studio
 .vs/
 CMakeSettings.json
+*.user
+
+# CMake
+*.tlog
+*.log
+*.rule
+*.stamp
+*.depend
+*.check_cache
+*.cmake
+*.recipe
+*.bin
+*.tcl
+
+# Compiled
+*.obj
+*.lib
+*.exe
+*.pdb
+project_files/win/Experimental.vcxproj.filters
+project_files/win/Experimental.vcxproj
